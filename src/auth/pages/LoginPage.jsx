@@ -8,16 +8,18 @@ import AuthLayout from '../layout/AuthLayout';
 import { useForm } from '../../hooks/useForm';
 import { clearErrorMessage } from '../../store/auth/authSlice';
 
+const formData = {
+    email: '',
+    password: ''
+}
+
 const LoginPage = () => {
 
     const { status, errorMessage } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
-    const { email, password, onInputChange } = useForm({
-        email: '',
-        password: ''
-    }) 
+    const { email, password, onInputChange } = useForm(formData);
 
     useEffect(() => {
         dispatch(clearErrorMessage());
@@ -32,8 +34,6 @@ const LoginPage = () => {
     }
 
     const onGoogleSignIn = () => {
-        
-        console.log('on Google Sign in');
         dispatch(startGoogleSignIn());
     }
 
