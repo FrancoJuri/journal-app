@@ -1,8 +1,9 @@
 import { useMemo } from "react";
 import { useDispatch } from 'react-redux';
+import { setActiveNote } from "../../store/journal/journalSlice";
+import { handleDrawerToggle } from "../../store/ui";
 import { Grid, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { TurnedInNot } from '@mui/icons-material';
-import { setActiveNote } from "../../store/journal/journalSlice";
 
 const SidebarItem = ({ title = '', body, id, date, imageUrls = [] }) => {
 
@@ -16,8 +17,15 @@ const SidebarItem = ({ title = '', body, id, date, imageUrls = [] }) => {
         dispatch(setActiveNote({ title, body, id, date, imageUrls }));
     }
 
+    const onToggleDrawer = () => {
+        dispatch(handleDrawerToggle());
+    }
+
     return (
-        <ListItem disablePadding onClick={onActiveNote}>
+        <ListItem disablePadding onClick={() => {
+            onActiveNote();
+            onToggleDrawer();
+        }}>
             <ListItemButton>
 
                 <ListItemIcon>

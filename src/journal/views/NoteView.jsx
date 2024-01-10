@@ -7,7 +7,9 @@ import { ImageGallery } from "../components";
 import { setActiveNote } from "../../store/journal/journalSlice";
 import { startDeletingNote, startSavingNote, startUploadingFiles } from "../../store/journal/thunks";
 import Swal from "sweetalert2";
-import 'sweetalert2/dist/sweetalert2.css'
+import 'sweetalert2/dist/sweetalert2.css';
+import { format } from 'date-fns';
+import { es } from "date-fns/locale/es";
 
 const NoteView = () => {
 
@@ -18,8 +20,11 @@ const NoteView = () => {
     const { title, body, date, onInputChange, formState } = useForm(note);
 
     const dateString = useMemo(() => {
-        const newDate = new Date(date);
-        return newDate.toUTCString();
+        const formattedDate = format(date, 'PPpp', {
+            locale: es,
+        });
+        
+        return formattedDate;
     }, [date])
 
     const fileInputRef = useRef();
@@ -64,7 +69,7 @@ const NoteView = () => {
                 </Typography>
             </Grid>
 
-            <Grid item display='flex' gap={4}>
+            <Grid item display='flex' gap={3}>
 
                 <input 
                     ref={fileInputRef} 

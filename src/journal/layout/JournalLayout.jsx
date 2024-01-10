@@ -1,7 +1,7 @@
 import { Box, Toolbar } from "@mui/material";
 import { Navbar, Sidebar } from "../components";
 
-const drawerWidth = 280;
+const drawerWidth = 250;
 
 const JournalLayout = ({ children }) => {
     return (

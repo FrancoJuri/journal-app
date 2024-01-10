@@ -6,7 +6,7 @@ const ImageGallery = ({ images }) => {
   if(!images?.length) return <></>;
 
   return (
-    <ImageList sx={{ margin: '0 auto', mt: 4, width: '80%', height: 500, '::-webkit-scrollbar': { display: 'none'} }} cols={5} rowHeight={ 260 }>
+    <ImageList sx={{ width: '100%', height: 'auto', pb: 3 }} cols={3}>
       {
         images.map((image) => (
           <ImageListItem key={image}>
