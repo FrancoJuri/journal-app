@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.css';
 import { format } from 'date-fns';
 import { es } from "date-fns/locale/es";
+import Footer from "../../ui/components/Footer";
 
 const NoteView = () => {
 
@@ -69,7 +70,7 @@ const NoteView = () => {
                 </Typography>
             </Grid>
 
-            <Grid item display='flex' gap={3}>
+            <Grid item display='flex' gap={3} sx={{ mt: { xs: 1, sm: 0 }}}>
 
                 <input 
                     ref={fileInputRef} 
@@ -122,7 +123,7 @@ const NoteView = () => {
 
                 <Button onClick={onDelete} variant='contained' color="error" sx={{ mt: 2 }}>
                     <DeleteOutline sx={{ mr: 1 }} />
-                    Borrar
+                    Borrar Nota
                 </Button>
 
             </Grid>
@@ -130,6 +131,13 @@ const NoteView = () => {
 
             <ImageGallery images={note?.imageUrls} />
 
+            {
+                (note.imageUrls.length <= 0)
+                ?
+                <Footer styles={{ position: 'absolute', bottom: '20px', width: 'auto', paddingRight: '24px' }} />
+                :
+                <Footer />
+            }
         </Grid>
     )
 }

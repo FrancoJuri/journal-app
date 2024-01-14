@@ -1,4 +1,5 @@
 import { Grid, Typography } from "@mui/material";
+import Footer from "../../ui/components/Footer";
 
 const AuthLayout = ({ children, title = '' }) => {
     return (
@@ -23,6 +24,8 @@ const AuthLayout = ({ children, title = '' }) => {
                 {children}
 
             </Grid>
+
+            <Footer styles={{ color: 'white', position: 'absolute', bottom: '20px', display: 'flex', justifyContent: 'center' }} linkColor='#F0F0F0' />
         </Grid>
     )
 }

@@ -34,8 +34,8 @@ const JournalPage = () => {
                     backgroundColor: 'error.main',
                     ':hover': { backgroundColor: 'error.main', opacity: 0.9},
                     position: 'fixed',
-                    right: 50,
-                    bottom: 50,
+                    right: { xs: 25, sm: 40, md: 50 },
+                    bottom: { xs: 35, sm: 40, md: 50 },
                 }}
                 
             >
