@@ -21,10 +21,6 @@ const LoginPage = () => {
 
     const { email, password, onInputChange } = useForm(formData);
 
-    useEffect(() => {
-        dispatch(clearErrorMessage());
-    }, [])
-
     const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
     const onSubmit = (e) => {
@@ -92,7 +88,9 @@ const LoginPage = () => {
                     </Grid>
 
                     <Grid container direction='row' justifyContent='start'>
-                        <Link component={ RouterLink } color='inherit' to='/auth/register'>
+                        <Link component={ RouterLink } color='inherit' to='/auth/register' onClick={() => {
+                            dispatch(clearErrorMessage());
+                        }}>
                             Crear una Cuenta
                         </Link>
                     </Grid>

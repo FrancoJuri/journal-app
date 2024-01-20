@@ -35,10 +35,6 @@ const RegisterPage = () => {
         displayNameValid, emailValid, passwordValid, isFormValid 
     } = useForm(formData, formValidations);
 
-    useEffect(() => {
-        dispatch(clearErrorMessage());
-    }, [])
-
     const onSubmit = (e) => {
         e.preventDefault();
         setFormSubmitted(true);
@@ -84,7 +80,9 @@ const RegisterPage = () => {
                         <Typography sx={{ mr: 1}}>
                             ¿Ya tienes una cuenta?
                         </Typography>
-                        <Link component={ RouterLink } color='inherit' to='/auth/login'>
+                        <Link component={ RouterLink } color='inherit' to='/auth/login' onClick={() => {
+                            dispatch(clearErrorMessage());
+                        }}>
                             Ingresar
                         </Link>
                     </Grid>
