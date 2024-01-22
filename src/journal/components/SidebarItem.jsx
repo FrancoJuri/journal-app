@@ -13,6 +13,10 @@ const SidebarItem = ({ title = '', body, id, date, imageUrls = [] }) => {
         return title.length > 17 ? title.substring(0, 17) + '...' : title;
     }, [title])
 
+    const newBody = useMemo(() => {
+        return body.length > 65 ? body.substring(0, 65) + '...' : body;
+    }, [body])
+
     const onActiveNote = () => {
         dispatch(setActiveNote({ title, body, id, date, imageUrls }));
     }
@@ -34,7 +38,7 @@ const SidebarItem = ({ title = '', body, id, date, imageUrls = [] }) => {
 
                 <Grid container>
                     <ListItemText primary={ newTitle } />
-                    <ListItemText secondary={ body } />
+                    <ListItemText secondary={ newBody } />
                 </Grid>
 
             </ListItemButton>

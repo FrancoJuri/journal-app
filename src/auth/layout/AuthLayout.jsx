@@ -6,16 +6,13 @@ const AuthLayout = ({ children, title = '' }) => {
         <Grid 
             container
             spacing={0}
-            direction='column'
-            alignItems='center'
-            justifyContent='center'
-            sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4}}
+            sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4, display: 'grid'}}
         >
 
             <Grid item
                 className="box-shadow"
                 xs={3}
-                sx={{width: {sm: 475}, backgroundColor: 'white', padding: 3, borderRadius: 2}}
+                sx={{ minWidth: {xs: 'calc(100vw - 64px)', sm: 475}, backgroundColor: 'white', padding: 3, borderRadius: 2, alignSelf: 'end', justifySelf: 'center' }}
             >
                 <Typography variant="h5" component='h2' sx={{mb: 1}} textAlign='center'>
                     { title }
@@ -25,7 +22,7 @@ const AuthLayout = ({ children, title = '' }) => {
 
             </Grid>
 
-            <Footer styles={{ color: 'white', position: 'absolute', bottom: '20px', display: 'flex', justifyContent: 'center' }} linkColor='#F0F0F0' />
+            <Footer styles={{ color: 'white', display: 'flex', justifyContent: 'center', alignSelf: 'end' }} linkColor='#F0F0F0' />
         </Grid>
     )
 }

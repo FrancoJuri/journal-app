@@ -131,13 +131,6 @@ const NoteView = () => {
 
             <ImageGallery images={note?.imageUrls} />
 
-            {
-                (note.imageUrls.length <= 0)
-                ?
-                <Footer styles={{ position: 'absolute', bottom: '20px', width: 'auto', paddingRight: '24px' }} />
-                :
-                <Footer />
-            }
         </Grid>
     )
 }
